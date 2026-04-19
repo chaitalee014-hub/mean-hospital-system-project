@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from "firebase/auth";
 import { app } from '../firebase';
+import { environment } from '../../environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5000/api'; // directly here
+ private apiUrl = environment.apiUrl; // directly here
 
   constructor(private http: HttpClient, private router: Router) { }
 
