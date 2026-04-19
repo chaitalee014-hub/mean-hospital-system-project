@@ -1,0 +1,101 @@
+/* MAIN GRID */
+
+.doctor-grid{
+width:90%;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:30px;
+padding:40px 0;
+}
+
+
+/* CARD */
+
+.doctor-card{
+display:flex;
+align-items:center;
+background:white;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:0.35s;
+}
+
+/* hover effect */
+
+.doctor-card:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ALTERNATE LAYOUT */
+
+.doctor-card.reverse{
+flex-direction:row-reverse;
+}
+
+
+/* IMAGE */
+
+.doctor-image{
+flex:1;
+}
+
+.doctor-image img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+
+/* DETAILS */
+
+.doctor-details{
+flex:2;
+padding:25px 35px;
+}
+
+.doctor-details h3{
+font-size:24px;
+margin-bottom:10px;
+color:#0f172a;
+}
+
+/* text */
+
+.doctor-details p{
+font-size:15px;
+color:#334155;
+margin-bottom:8px;
+}
+
+/* case stories */
+
+.case{
+background:#f1f5f9;
+padding:10px;
+border-radius:8px;
+margin-top:10px;
+line-height:1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.doctor-card{
+flex-direction:column;
+}
+
+.doctor-card.reverse{
+flex-direction:column;
+}
+
+.doctor-image img{
+height:220px;
+}
+
+}

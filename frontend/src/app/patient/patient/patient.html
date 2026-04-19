@@ -1,0 +1,79 @@
+<div class="container">
+  
+<div class="back-btn-wrapper">
+  <button class="back-btn" routerLink="/book-appointment">
+    ← Back
+  </button>
+</div>
+
+  <h2 class="title">My Appointments</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    Loading appointments...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error-popup">
+    {{ errorMessage }}
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="!loading && appointments.length === 0" class="empty">
+    No appointments found.
+  </div>
+
+  <!-- Table -->
+  <div *ngIf="!loading && appointments.length > 0" class="table-wrapper">
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let appt of appointments" class="row-hover">
+
+          <td>{{ appt.doctor?.name }}</td>
+          <td>{{ appt.appointmentDate | date:'mediumDate' }}</td>
+          <td>{{ appt.appointmentTime }}</td>
+
+          <td>
+            <span class="status"
+              [ngClass]="{
+                'pending': appt.status === 'pending',
+                'approved': appt.status === 'approved',
+                'rejected': appt.status === 'rejected',
+                'cancelled': appt.status === 'cancelled_by_patient'
+              }">
+              {{ appt.status | titlecase }}
+            </span>
+          </td>
+
+          <td>
+            <button
+              *ngIf="appt.status === 'pending'"
+              class="cancel-btn"
+              (click)="cancelAppointment(appt._id)">
+              Cancel
+            </button>
+
+            <span *ngIf="appt.status !== 'pending'" class="disabled-text">
+              —
+            </span>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

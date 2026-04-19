@@ -1,0 +1,346 @@
+/* ================= GLOBAL ================= */
+body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior:smooth;
+  background:#f5f9ff;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* FIX BACKGROUND */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/hero_section.jpg') no-repeat center center/cover; /* ✅ FIXED */
+  z-index: 0;
+}
+
+/* OVERLAY */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.7),
+    rgba(0,102,255,0.3)
+  );
+  z-index: 1;
+}
+
+/* CONTENT CENTER */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  color: white;
+  padding: 20px;
+}
+
+/* TITLE */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* SUBTITLE */
+.hero-subtitle {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ================= BUTTON ================= */
+.btn-primary{
+  background:linear-gradient(135deg,#0066ff,#00c6ff);
+  border:none;
+  padding:12px 28px;
+  border-radius:30px;
+  font-weight:600;
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.btn-primary::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+  transition:0.5s;
+}
+
+.btn-primary:hover::before{
+  left:100%;
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 10px 25px rgba(0,102,255,0.4);
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title{
+  font-weight:800;
+  margin-bottom:25px;
+  position:relative;
+}
+
+.section-title::after{
+  content:"";
+  width:60px;
+  height:4px;
+  background:#0066ff;
+  display:block;
+  margin-top:10px;
+  border-radius:5px;
+}
+
+/* ================= ABOUT IMAGE ================= */
+.hospital-img{
+  width:100%;
+  height:auto;
+  object-fit:cover; /* FIX IMAGE ISSUE */
+  border-radius:15px;
+  transition:0.5s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.hospital-img:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ================= SERVICE CARD ================= */
+.service-card{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  padding:30px;
+  border-radius:18px;
+  transition:0.4s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#0066ff,#00c6ff);
+  opacity:0;
+  transition:0.4s;
+  top:0;
+  left:0;
+}
+
+.service-card:hover::before{
+  opacity:0.08;
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* ================= CHAIRMAN (SLIGHT UPGRADE ONLY) ================= */
+.chairman-img{
+  width:170px;
+  height:170px;
+  object-fit:cover;
+  border-radius:50%;
+  border:5px solid white;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+  transition:0.4s ease;
+}
+
+.chairman-img:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.35),
+    0 0 15px rgba(0,102,255,0.4);
+}
+
+/* ================= WHY SECTION ================= */
+.why-section{
+  background:linear-gradient(135deg,#003366,#0066ff);
+  padding:80px 0;
+}
+
+.why-section h4{
+  font-size:2.2rem;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.why-section .col-md-3:hover h4{
+  transform:scale(1.1);
+  color:#00e6ff;
+}
+
+/* ================= FOOTER FIX ================= */
+.footer-section{
+  background:linear-gradient(135deg,#0d0d0d,#1a1a1a);
+  color:#ddd;
+  padding:70px 0 30px;
+  width:100%;
+}
+
+.footer-section h5{
+  color:white;
+  margin-bottom:20px;
+  padding-left: 20px;
+}
+
+.footer-section p{
+  color:#aaa;
+  transition:0.3s;
+  padding-left: 20px;
+}
+
+.footer-section p:hover{
+  color:#fff;
+}
+
+.footer-section hr{
+  border-color:rgba(255,255,255,0.2);
+  margin:30px 0;
+}
+
+.copyright{
+  color:#aaa;
+  font-size:14px;
+}
+
+/* ================= ANIMATIONS ================= */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeInUp{
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3.2rem;
+}
+/* ================= MOBILE IMPROVEMENTS ================= */
+
+/* HERO FIX */
+@media (max-width: 768px) {
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+}
+
+/* ABOUT SECTION STACK */
+@media (max-width: 768px) {
+
+  .row {
+    flex-direction: column;
+  }
+
+  .hospital-img {
+    margin-top: 20px;
+  }
+
+}
+
+/* SERVICES GRID FIX */
+@media (max-width: 768px) {
+
+  .row.g-4 > div {
+    margin-bottom: 15px;
+  }
+
+}
+
+/* WHY SECTION FIX */
+@media (max-width: 768px) {
+
+  .why-section .row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}
+
+/* FOOTER FIX */
+@media (max-width: 768px) {
+
+  .footer-inner {
+    padding: 0 10px;
+  }
+
+}
+
+/* SMALL DEVICES */
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .service-card {
+    padding: 18px;
+  }
+
+}

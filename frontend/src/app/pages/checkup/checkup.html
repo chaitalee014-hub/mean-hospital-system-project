@@ -1,0 +1,32 @@
+<div class="checkup-container">
+
+  <div class="header">
+    <h1>Health Checkup Packages</h1>
+    <p>Select a health package and consult the right specialist</p>
+  </div>
+
+  <div class="package-grid">
+
+    <div class="package-card" *ngFor="let pkg of packages">
+
+      <div class="icon">{{ pkg.icon }}</div>
+
+      <h3>{{ pkg.name }}</h3>
+
+      <p class="desc">{{ pkg.description }}</p>
+
+      <p class="specialist">
+        Specialist: <strong>{{ pkg.specialization }}</strong>
+      </p>
+
+      <button 
+        class="action-btn"
+        (click)="findSpecialist(pkg.specialization)">
+        Find Specialists
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

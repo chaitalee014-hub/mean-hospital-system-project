@@ -1,0 +1,117 @@
+<div class="page-container">
+
+  <!-- BACK BUTTON -->
+  <button class="back-btn" routerLink="/admin">
+    ← Back Dashboard
+  </button>
+
+<div class="form-container">
+
+  <h2>Add New Doctor</h2>
+
+  <form (ngSubmit)="createDoctor()" enctype="multipart/form-data">
+
+    <!-- ================= BASIC DETAILS ================= -->
+    <h3>Basic Information</h3>
+
+    <input type="text"
+           placeholder="Doctor Name"
+           [(ngModel)]="doctor.name"
+           name="name"
+           required>
+
+    <input type="email"
+           placeholder="Doctor Email"
+           [(ngModel)]="doctor.email"
+           name="email"
+           required>
+
+    <input type="text"
+           placeholder="Specialization"
+           [(ngModel)]="doctor.specialization"
+           name="specialization"
+           required>
+
+    <input type="text"
+           placeholder="Qualification"
+           [(ngModel)]="doctor.qualification"
+           name="qualification"
+           required>
+
+    <input type="number"
+           placeholder="Experience (Years)"
+           [(ngModel)]="doctor.experience"
+           name="experience"
+           required>
+
+    <input type="number"
+           placeholder="Consultation Fee"
+           [(ngModel)]="doctor.consultationFee"
+           name="consultationFee"
+           required>
+
+    <input type="text"
+           placeholder="Available Days (e.g. Monday,Tuesday,Friday)"
+           [(ngModel)]="doctor.availableDays"
+           name="availableDays"
+           required>
+
+
+    <!-- ================= WORKING HOURS ================= -->
+    <h3>Working Hours</h3>
+
+    <label>Start Time</label>
+    <input type="time"
+           [(ngModel)]="doctor.startTime"
+           name="startTime"
+           required>
+
+    <label>End Time</label>
+    <input type="time"
+           [(ngModel)]="doctor.endTime"
+           name="endTime"
+           required>
+
+
+    <!-- ================= SLOT SETTINGS ================= -->
+    <h3>Appointment Slot Settings</h3>
+
+    <label>Slot Duration (Minutes)</label>
+    <select [(ngModel)]="doctor.slotDuration" name="slotDuration">
+      <option [value]="15">15 Minutes</option>
+      <option [value]="20">20 Minutes</option>
+      <option [value]="30" selected>30 Minutes</option>
+      <option [value]="45">45 Minutes</option>
+      <option [value]="60">60 Minutes</option>
+    </select>
+
+
+    <!-- ================= LUNCH BREAK ================= -->
+    <h3>Lunch Break</h3>
+
+    <label>Lunch Start Time</label>
+    <input type="time"
+           [(ngModel)]="doctor.lunchStart"
+           name="lunchStart"
+           required>
+
+    <label>Lunch End Time</label>
+    <input type="time"
+           [(ngModel)]="doctor.lunchEnd"
+           name="lunchEnd"
+           required>
+
+
+    <!-- ================= IMAGE ================= -->
+    <h3>Profile Image</h3>
+
+    <input type="file"
+           (change)="onFileSelect($event)"
+           accept="image/*">
+
+
+    <button type="submit">Create Doctor</button>
+
+  </form>
+</div>
+</div>

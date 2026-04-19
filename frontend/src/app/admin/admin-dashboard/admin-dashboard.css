@@ -1,0 +1,86 @@
+
+.admin-layout{
+display:flex;
+min-height:100vh;
+font-family:system-ui;
+position:relative;
+}
+/* MAIN CONTENT */
+
+.content{
+flex:1;
+padding:40px;
+background:#f5f9ff;
+position:relative;
+}
+
+/* DASHBOARD CARDS */
+
+.admin-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-bottom:40px;
+margin-top: 10px;
+}
+
+.admin-card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+cursor:pointer;
+transition:0.3s;
+border-left:5px solid #1e88e5;
+}
+
+.admin-card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,0.12);
+}
+
+.admin-card h3{
+margin-bottom:10px;
+color:#0f172a;
+}
+
+.admin-card p{
+font-size:14px;
+color:#64748b;
+line-height:1.5;
+}
+
+
+/* ADMIN INFO */
+
+.admin-info{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.admin-info h3{
+margin-bottom:15px;
+}
+
+.admin-info ul{
+padding-left:18px;
+}
+
+.admin-info li{
+margin-bottom:10px;
+color:#475569;
+}
+
+@media (max-width: 768px) {
+
+  .content {
+    padding: 20px;
+  }
+
+  .admin-cards {
+    grid-template-columns: 1fr;
+  }
+
+}

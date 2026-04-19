@@ -1,0 +1,27 @@
+<div class="form-container">
+
+<h2>Edit Specialist</h2>
+
+<form (ngSubmit)="updateSpecialist()">
+
+<input type="text" [(ngModel)]="form.name" name="name">
+
+<input type="text" [(ngModel)]="form.specialization" name="specialization">
+
+<input type="text" [(ngModel)]="form.qualification" name="qualification">
+
+<input type="number" [(ngModel)]="form.experience" name="experience">
+
+<textarea [(ngModel)]="form.caseStory1" name="caseStory1"></textarea>
+
+<textarea [(ngModel)]="form.caseStory2" name="caseStory2"></textarea>
+
+<input type="email" [(ngModel)]="form.email" name="email">
+
+<input type="file" (change)="onFileSelect($event)">
+
+<button type="submit">Update Specialist</button>
+
+</form>
+
+</div>

@@ -1,0 +1,163 @@
+<div class="manage-container">
+
+  <div class="header">
+    <h2>Manage Doctors</h2>
+
+    <button class="back-btn" routerLink="/admin">
+      ← Back to Dashboard
+    </button>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+
+    <input type="text"
+           placeholder="Search doctor by name..."
+           [(ngModel)]="searchTerm"
+           (input)="applyFilters()" />
+
+    <select [(ngModel)]="specializationFilter"
+            (change)="applyFilters()">
+      <option value="">All Specializations</option>
+      <option value="Cardiologist">Cardiologist</option>
+      <option value="Neurologist">Neurologist</option>
+      <option value="Orthopedic">Orthopedic</option>
+      <option value="Pediatrician">Pediatrician</option>
+      <option value="Gynecologist">Gynecologist</option>
+    </select>
+
+    <button class="clear-btn" (click)="clearFilters()">
+      Reset
+    </button>
+
+  </div>
+
+  <!-- LOADING -->
+  <div *ngIf="loading" class="loading">
+    Loading doctors...
+  </div>
+
+  <!-- DOCTORS TABLE -->
+  <table *ngIf="!loading" class="doctor-table">
+
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Experience</th>
+        <th>Fee</th>
+        <th>Available Days</th>
+        <th>Status</th>
+        <th>Leave</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let doctor of filteredDoctors">
+        
+        <!-- IMAGE -->
+        <td data-label="Image">
+          <img *ngIf="doctor.image"
+               [src]=" doctor.image"
+               class="doctor-img" />
+        </td>
+
+        <!-- NAME -->
+        <td data-label="Name">
+          {{ doctor.name }}
+        </td>
+
+        <!-- SPECIALIZATION -->
+        <td data-label="Specialization">
+          <span class="badge">
+            {{ doctor.specialization }}
+          </span>
+        </td>
+
+        <!-- EXPERIENCE -->
+        <td data-label="Experience">
+          {{ doctor.experience }} yrs
+        </td>
+
+        <!-- FEE -->
+        <td data-label="Fee">
+          ₹{{ doctor.consultationFee }}
+        </td>
+
+        <!-- AVAILABLE DAYS -->
+        <td data-label="Available Days">
+          {{ doctor.availableDays.join(', ') }}
+        </td>
+
+        <!-- STATUS -->
+        <td data-label="Status">
+
+          <label class="switch">
+            <input type="checkbox"
+                   [(ngModel)]="doctor.isAvailable"
+                   (change)="toggleAvailability(doctor)">
+            <span class="slider"></span>
+          </label>
+
+          <div class="status-box">
+
+            <span *ngIf="doctor.isAvailable" class="active">
+              🟢 Doctor Enabled
+            </span>
+
+            <span *ngIf="!doctor.isAvailable" class="leave">
+              🔴 Doctor Disabled
+            </span>
+
+          </div>
+
+        </td>
+
+        <!-- LEAVE -->
+        <td data-label="Leave">
+
+          <input type="date"
+                 [min]="today"
+                 (change)="addLeaveDate(doctor, $event)" />
+
+          <div class="leave-list">
+            <span *ngFor="let d of getUpcomingLeaves(doctor)"
+                  class="leave-badge">
+              🔴 {{ d | date:'dd MMM' }}
+            </span>
+          </div>
+
+        </td>
+
+        <!-- ACTIONS -->
+        <td data-label="Actions">
+
+          <button class="edit-btn"
+                  (click)="editDoctor(doctor._id)">
+            Edit
+          </button>
+
+          <button class="delete-btn"
+                  (click)="deleteDoctor(doctor._id)">
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+      <!-- EMPTY -->
+      <tr *ngIf="filteredDoctors.length === 0">
+        <td colspan="9" class="empty">
+          No doctors found
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,0 +1,150 @@
+/* PAGE BACKGROUND */
+body {
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+/* CARD */
+.booking-card {
+  background: #ffffff;
+  padding: 35px;
+  width: 400px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+  border-left: 6px solid #1976d2;
+}
+
+/* TITLE */
+.booking-card h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1976d2;
+}
+
+/* INFO */
+.info-text {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+  outline: none;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+}
+
+/* BACK BUTTON FIX */
+.back-btn-container {
+  position: absolute;
+  top: 90px;
+  right: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 768px) {
+
+  .booking-container {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .booking-card {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .back-btn-container {
+    position: static;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+  .booking-card {
+    padding: 20px;
+  }
+
+  .booking-card h2 {
+    font-size: 20px;
+  }
+
+  .info-text {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

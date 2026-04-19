@@ -1,0 +1,86 @@
+<div class="appointment-container">
+
+  <!-- HEADER -->
+  <div class="header-row">
+    <h1 class="page-title">Book Appointment</h1>
+
+    <div *ngIf="role === 'patient'" class="dashboard-link">
+      <button class="btn dashboard-btn" routerLink="/patient/dashboard">
+        My Appointments
+      </button>
+    </div>
+  </div>
+
+  
+
+  <!-- Specialization Banner -->
+  <div *ngIf="cameFromCheckup" class="filter-banner">
+    Showing {{ selectedSpecialization }} Specialists
+    <button (click)="showAllDoctors()" class="clear-btn">
+      See All
+    </button>
+  </div>
+
+  <!-- FILTER SECTION -->
+  <div class="filter-section">
+
+    <!-- Search -->
+    <input type="text" placeholder="Search doctor..." [(ngModel)]="searchTerm" (ngModelChange)="applyFilters()"
+      class="search-input" />
+
+    <!-- Sort -->
+    <select [(ngModel)]="sortBy" (change)="applyFilters()" class="filter-select">
+      <option value="">Sort By</option>
+      <option value="experience">Experience (High → Low)</option>
+      <option value="fee">Fee (Low → High)</option>
+    </select>
+
+    <!-- Available Today -->
+    <label class="checkbox-label">
+      <input type="checkbox" [(ngModel)]="availableToday" (change)="applyFilters()" />
+      Available Today
+    </label>
+
+  </div>
+
+  <!-- NO DATA -->
+  <!-- <div *ngIf="filteredDoctorsList.length === 0" class="no-data"> -->
+  <div *ngIf="filteredDoctorsList.length === 0" class="no-data">
+  <p>No doctors found.</p>
+</div>
+
+
+
+<!-- DOCTOR GRID -->
+<div class="doctor-grid">
+
+  <div *ngFor="let doctor of filteredDoctorsList" class="doctor-card">
+
+    <img *ngIf="doctor.image" [src]="doctor.image" alt="Doctor" class="doctor-img" />
+
+    <h3>{{ doctor.name }}</h3>
+
+    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+    <p><strong>Experience:</strong> {{ doctor.experience }} Years</p>
+    <p><strong>Fee:</strong> ₹{{ doctor.consultationFee }}</p>
+
+    <hr>
+
+    <p><strong>Available:</strong> {{ doctor.availableDays?.join(', ') }}</p>
+    <p><strong>Hours:</strong> {{ doctor.startTime }} - {{ doctor.endTime }}</p>
+    <p><strong>Lunch:</strong> {{ doctor.lunchStart }} - {{ doctor.lunchEnd }}</p>
+
+    <div class="btn-row">
+
+      <button *ngIf="role === 'patient'" class="btn book-btn" [routerLink]="['/book-form', doctor._id]">
+        Book Appointment
+      </button>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>

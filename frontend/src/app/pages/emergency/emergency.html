@@ -1,0 +1,23 @@
+<!-- 🚑 Emergency Button -->
+<div class="emergency-btn" (click)="handleEmergency()">
+  🚑 Emergency
+</div>
+
+<!-- 🚨 Popup -->
+<div class="emergency-box" *ngIf="showBox">
+  <h2>Emergency Support</h2>
+  <p class="subtitle">Immediate help • 24×7 Available</p>
+
+  <!-- Call (Mobile Only) -->
+  <button class="action-btn" (click)="callAmbulance()">
+    📞 Call Ambulance 
+  </button>
+
+  <!-- WhatsApp (Works Everywhere) -->
+  <button class="action-btn whatsapp" (click)="sendWhatsApp()">
+    💬 Send Location via WhatsApp
+  </button>
+
+
+  <button class="close-btn" (click)="toggleBox()">Close</button>
+</div>

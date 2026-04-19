@@ -1,0 +1,207 @@
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* BACK BUTTON POSITION */
+.back-btn-wrapper{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:10px;
+}
+
+/* BACK BUTTON STYLE */
+.back-btn{
+  padding:8px 16px;
+  border-radius:8px;
+  border:2px solid #007bff;
+  background:white;
+  color:#007bff;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.back-btn:hover{
+  background:#007bff;
+  color:white;
+  transform:translateY(-2px);
+  box-shadow:0 5px 12px rgba(0,123,255,0.35);
+}
+
+/* CLICK EFFECT */
+.back-btn:active{
+  transform:scale(0.95);
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.modern-table thead {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 14px;
+  text-align: center;
+}
+
+.modern-table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.row-hover:hover {
+  background: #e9f2ff;
+  transition: 0.3s ease;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.cancelled {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+.cancel-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.disabled-text {
+  color: gray;
+}
+
+.empty {
+  text-align: center;
+  color: gray;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .modern-table th,
+  .modern-table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .back-btn-wrapper {
+    justify-content: center;
+  }
+
+}
+
+/* SMALL MOBILE */
+@media (max-width: 576px) {
+
+  .modern-table {
+    font-size: 12px;
+  }
+
+  .modern-table thead {
+    display: none;
+  }
+
+  .modern-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+  }
+
+  .modern-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+  }
+
+  .modern-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+  }
+
+}

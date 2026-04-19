@@ -1,0 +1,39 @@
+<h2>Manage Specialists</h2>
+
+<div class="doctor-grid">
+
+<div *ngFor="let doc of specialists" class="doctor-card">
+
+<img [src]="doc.image">
+
+<h3>{{doc.name}}</h3>
+
+<p><strong>Name:</strong> {{doc.name}}</p>
+
+<p class="specialty"><strong>Specialization:</strong> {{doc.specialization}}</p>
+
+<p><strong>Experience:</strong> {{doc.experience}} Years</p>
+
+<p><strong>Qualification:</strong> {{doc.qualification}}</p>
+
+<div class="btn-group">
+
+<!-- EDIT BUTTON USING ROUTERLINK -->
+<button class="edit-btn" (click)="EditSpecialist(doc._id)">
+Edit
+</button>
+ 
+
+<button (click)="delete(doc._id)" class="btn-warning">
+Delete
+</button>
+
+<button class="btn-danger" (click)="sendEmergency(doc._id)">
+Emergency Email
+</button>
+
+</div>
+
+</div>
+
+</div>

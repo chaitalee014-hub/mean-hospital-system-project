@@ -1,0 +1,46 @@
+<!-- Floating Button -->
+<button class="chat-btn" (click)="toggleChat()">💬</button>
+
+<!-- Chat Window -->
+<div class="chatbox" *ngIf="isOpen">
+
+  <!-- Header -->
+  <div class="chat-header">
+    <span>Hospital Assistant</span>
+    <button class="close-btn" (click)="toggleChat()">✖</button>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-body" #chatBody>
+
+    <div *ngFor="let msg of messages; trackBy: trackByFn">
+
+      <!-- Bot -->
+      <div *ngIf="msg.sender === 'bot'" class="bot message">
+        <span [innerHTML]="msg.text.replace(/\n/g, '<br>')"></span>
+      </div>
+
+      <!-- User -->
+      <div *ngIf="msg.sender === 'user'" class="user message">
+        {{ msg.text }}
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Input -->
+  <div class="chat-footer">
+    <input 
+      [(ngModel)]="userInput"
+      (keyup.enter)="sendMessage()"
+      placeholder="Ask something..."
+      autocomplete="off"
+    />
+    
+    <button (click)="sendMessage()" [disabled]="isLoading">
+      {{ isLoading ? '...' : 'Send' }}
+    </button>
+  </div>
+
+</div>

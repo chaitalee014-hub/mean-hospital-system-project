@@ -1,0 +1,105 @@
+<div class="doctor-container">
+
+  <div class="page-header">
+
+    <div>
+      <h2 class="page-title">Doctor Appointments</h2>
+      <p class="count-info">
+        Total Appointments: {{ appointments.length }}
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE ACTIONS -->
+    <div class="header-actions">
+
+      <div class="bell" (click)="onBellClick()">
+        🔔
+        <span *ngIf="notificationCount > 0" class="badge">
+          {{ notificationCount }}
+        </span>
+      </div>
+
+      <button class="back-btn" routerLink="/doctor">
+        ← Back
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="filter-bar">
+
+    <input type="date" [(ngModel)]="selectedDate" (change)="applyFilters()" class="date-filter">
+
+    <select [(ngModel)]="statusFilter" (change)="applyFilters()" class="status-filter">
+
+      <option value="">All Status</option>
+      <option value="pending">Pending</option>
+      <option value="approved">Approved</option>
+      <option value="rejected">Rejected</option>
+      <option value="completed">Completed</option>
+    </select>
+    <button class="clear-filter" (click)="clearFilters()"> Clear Filters </button>
+  </div>
+  <table class="appointment-table">
+
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let appt of filteredAppointments">
+
+        <td>{{ appt.patient.email }}</td>
+        <td>{{ appt.appointmentDate | date }}</td>
+        <td>{{ appt.appointmentTime }}</td>
+
+        <td>
+          <span class="status" [ngClass]="appt.status">
+            {{ appt.status }}
+          </span>
+        </td>
+
+
+
+        <td>
+
+          <!-- ✅ BEFORE TIME → ONLY PENDING -->
+          <button class="btn approve" (click)="updateStatus(appt._id, 'approved')"
+            *ngIf="appt.status === 'pending' && isFuture(appt)">
+            Approve
+          </button>
+
+          <button class="btn reject" (click)="updateStatus(appt._id, 'rejected')"
+            *ngIf="appt.status === 'pending' && isFuture(appt)">
+            Reject
+          </button>
+
+          <!-- ✅ AFTER TIME → ONLY APPROVED -->
+          <button class="btn complete" (click)="updateStatus(appt._id, 'completed')"
+            *ngIf="appt.status === 'approved' && !isFuture(appt)">
+            Completed
+          </button>
+
+        </td>
+
+      </tr>
+
+      <tr *ngIf="filteredAppointments.length === 0">
+        <td colspan="5" class="empty-cell">
+          No appointments available.
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

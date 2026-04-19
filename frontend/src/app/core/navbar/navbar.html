@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+   <a class="navbar-brand d-flex align-items-center" routerLink="/">
+  <img src="/Your Wellness, Our Mission.png"
+       class="logo">
+
+</a>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <!-- MENU -->
+      <ul class="navbar-nav ms-auto gap-lg-4 nav-menu">
+
+        <li class="nav-item">
+          <a class="nav-link nav-animated"
+             routerLink="/"
+             routerLinkActive="active-link"
+             [routerLinkActiveOptions]="{ exact: true }">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-animated"
+             routerLink="/specialists"
+             routerLinkActive="active-link">
+            Specialists
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-animated"
+             routerLink="/checkup"
+             routerLinkActive="active-link">
+            Checkup
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-animated"
+             routerLink="/book-appointment"
+             routerLinkActive="active-link">
+            Book Appointment
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-animated"
+             routerLink="/centre-of-excellence"
+             routerLinkActive="active-link">
+            Centre of Excellence
+          </a>
+        </li>
+
+        <!-- ADMIN -->
+        <li class="nav-item" *ngIf="authService.isAdmin()">
+          <a class="nav-link admin-link"
+             routerLink="/admin"
+             routerLinkActive="active-link">
+            Admin Panel
+          </a>
+        </li>
+
+        <!-- DOCTOR -->
+        <li class="nav-item" *ngIf="authService.isDoctor()">
+          <a class="nav-link doctor-link"
+             routerLink="/doctor"
+             routerLinkActive="active-link">
+            Doctor Panel
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- AUTH BUTTONS -->
+
+      <div class="auth-buttons ms-lg-4">
+
+        <button *ngIf="!authService.isLoggedIn()"
+                class="login-btn"
+                routerLink="/login">
+          Login
+        </button>
+
+        <button *ngIf="authService.isLoggedIn()"
+                class="logout-btn"
+                (click)="logout()">
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+

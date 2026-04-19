@@ -1,0 +1,167 @@
+/* Container Card */
+.container {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* Card Hover Effect */
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+h3 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input Fields */
+.form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Input Hover */
+.form-control:hover {
+  border-color: #4CAF50;
+}
+
+/* Input Focus Animation */
+.form-control:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  transform: scale(1.02);
+}
+
+/* Label Styling */
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Login Button */
+.btn-primary {
+  background: linear-gradient(135deg, #0d8fbf, #2417d7);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2e7d32, #4CAF50);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Button Click Effect */
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Signup Link */
+a {
+  color: #4CAF50;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Link Hover Underline Animation */
+a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  background: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Error Message */
+.text-danger {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+}
+
+.eye-icon:hover {
+  color: #000;
+}
+
+/* Google Button */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: #fff;
+  color: #444;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  padding: 10px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+/* Google Logo */
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hover Effect */
+.google-btn:hover {
+  background: #f7f7f7;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* Click Effect */
+.google-btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+
+  .container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+}

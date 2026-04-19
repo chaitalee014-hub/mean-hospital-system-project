@@ -1,0 +1,86 @@
+<div class="doctor-layout">
+
+  <h2 class="page-title">Doctor Dashboard</h2>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+
+    <a routerLink="/doctor/appointments" class="doctor-btn primary-btn">
+      View My Appointments
+    </a>
+
+  </div>
+
+
+  <!-- Instructions from Hospital -->
+  <div class="info-card">
+
+    <h3>Hospital Guidelines</h3>
+
+    <ul>
+      <li>Review all appointment requests regularly.</li>
+      <li>Approve appointments if the slot is available.</li>
+      <li>Reject appointments if the patient selects an invalid time.</li>
+      <li>Mark appointment as <strong>Completed</strong> after consultation.</li>
+      <li>Do not modify patient records without authorization.</li>
+      <li>Maintain professional conduct during consultations.</li>
+    </ul>
+
+  </div>
+
+
+  <!-- Appointment Status Guide -->
+  <div class="info-card">
+
+    <h3>Appointment Status Guide</h3>
+
+    <div class="status-grid">
+
+      <div class="status-box pending">
+        <h4>Pending</h4>
+        <p>Patient has requested an appointment. Review and approve or reject.</p>
+      </div>
+
+      <div class="status-box approved">
+        <h4>Approved</h4>
+        <p>The appointment is confirmed. The patient will visit at scheduled time.</p>
+      </div>
+
+      <div class="status-box rejected">
+        <h4>Rejected</h4>
+        <p>The appointment request is denied due to scheduling or other reasons.</p>
+      </div>
+
+      <div class="status-box completed">
+        <h4>Completed</h4>
+        <p>Mark appointment completed after consultation with the patient.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Doctor Notes -->
+  <div class="info-card">
+
+    <h3>Doctor Responsibilities</h3>
+
+    <p>
+      Doctors are responsible for reviewing appointment requests,
+      managing their consultation schedule, and ensuring that
+      patients receive appropriate medical care.
+    </p>
+
+    <p>
+      Please ensure that all appointments are updated with the correct
+      status to maintain accurate hospital records.
+    </p>
+
+  </div>
+
+
+  <!-- Router Outlet -->
+  <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,88 @@
+<div class="edit-container">
+
+<h2>Edit Doctor</h2>
+
+<button class="back-btn" routerLink="/admin/doctors">
+← Back
+</button>
+
+<div class="error" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="loading" class="loading">
+Loading doctor data...
+</div>
+
+<form *ngIf="!loading" (ngSubmit)="updateDoctor()" class="doctor-form">
+
+<div class="grid">
+
+<input [(ngModel)]="doctor.name" name="name" placeholder="Doctor Name">
+
+<input [(ngModel)]="doctor.specialization" name="specialization" placeholder="Specialization">
+
+<input [(ngModel)]="doctor.qualification" name="qualification" placeholder="Qualification">
+
+<input type="number" [(ngModel)]="doctor.experience" name="experience" placeholder="Experience">
+
+<input type="number" [(ngModel)]="doctor.consultationFee" name="consultationFee" placeholder="Consultation Fee">
+
+</div>
+
+
+<h3>Working Time</h3>
+
+<div class="grid">
+
+<input type="time" [(ngModel)]="doctor.startTime" name="startTime">
+
+<input type="time" [(ngModel)]="doctor.endTime" name="endTime">
+
+<input type="time" [(ngModel)]="doctor.lunchStart" name="lunchStart">
+
+<input type="time" [(ngModel)]="doctor.lunchEnd" name="lunchEnd">
+
+<input type="number" [(ngModel)]="doctor.slotDuration" name="slotDuration" placeholder="Slot Duration">
+
+</div>
+
+
+<h3>Available Days</h3>
+
+<div class="days">
+
+<label *ngFor="let day of days">
+
+<input
+type="checkbox"
+[checked]="doctor.availableDays.includes(day)"
+(change)="toggleDay(day)"
+>
+
+{{day}}
+
+</label>
+
+</div>
+
+
+<h3>Doctor Image</h3>
+
+<!-- ✅ SHOW PREVIOUS IMAGE -->
+<div class="image-preview" *ngIf="doctor.image">
+  <img 
+    [src]="doctor.image" 
+    alt="Doctor Image"
+  >
+</div>
+
+<input type="file" (change)="onFileSelected($event)">
+
+<button class="update-btn" type="submit">
+Update Doctor
+</button>
+
+</form>
+
+</div>

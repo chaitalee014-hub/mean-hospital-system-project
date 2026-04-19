@@ -1,0 +1,54 @@
+<div class="back-btn-container">
+  <button class="back-btn" routerLink="/book-appointment">
+    ← Back
+  </button>
+</div>
+
+<div class="booking-container">
+  <div class="booking-card">
+
+    <h2>Book Appointment</h2>
+
+    <p class="info-text">
+      📌 Each consultation lasts {{doctor?.slotDuration}} minutes.<br>
+      📌 Lunch break: {{doctor?.lunchStart}} - {{doctor?.lunchEnd}}<br>
+      📌 Please arrive 10 minutes early.
+    </p>
+
+    <form (ngSubmit)="submit()">
+
+      <div class="form-group">
+        <label>Select Appointment Date</label>
+        <input type="date"
+               [min]="minDate"
+               [max]="maxDate"
+               [(ngModel)]="form.appointmentDate"
+               (change)="generateSlots()"
+               name="appointmentDate"
+               required>
+      </div>
+
+      <p class="text-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <div class="form-group">
+        <label>Select Appointment Time</label>
+
+        <select [(ngModel)]="form.appointmentTime" name="appointmentTime" required>
+          <option value="">Select Time</option>
+          <option *ngFor="let slot of timeSlots" [value]="slot">
+            {{ slot }}
+          </option>
+        </select>
+
+      </div>
+
+      <button type="submit">
+        Confirm Appointment
+      </button>
+
+    </form>
+
+  </div>
+</div>

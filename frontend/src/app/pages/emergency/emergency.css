@@ -1,0 +1,67 @@
+.emergency-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff3b3b;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 99999; /* 🔥 increase */
+}
+
+.emergency-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 260px;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 99999; /* 🔥 important */
+}
+
+.subtitle {
+  font-size: 13px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.action-btn {
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.close-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: none;
+  background: #eee;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+
+  .emergency-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .emergency-box {
+    width: 90%;
+    right: 5%;
+  }
+}

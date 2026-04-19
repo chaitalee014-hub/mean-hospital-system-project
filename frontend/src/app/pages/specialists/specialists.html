@@ -1,0 +1,33 @@
+<div class="doctor-grid">
+
+<div *ngFor="let doc of specialists; let i = index" 
+     class="doctor-card"
+     [ngClass]="{'reverse': i % 2 !== 0}">
+
+<div class="doctor-image">
+
+<img [src]="doc.image">
+
+</div>
+
+<div class="doctor-details">
+
+<h3>{{doc.name}}</h3>
+
+<p><strong>Name:</strong> {{doc.name}}</p>
+
+<p><strong>Specialization:</strong> {{doc.specialization}}</p>
+
+<p><strong>Experience:</strong> {{doc.experience}} Years</p>
+
+<p><strong>Qualification:</strong> {{doc.qualification}}</p>
+
+<p class="case"><strong>Case Story 1:</strong> {{doc.caseStory1}}</p>
+
+<p class="case"><strong>Case Story 2:</strong> {{doc.caseStory2}}</p>
+
+</div>
+
+</div>
+
+</div>

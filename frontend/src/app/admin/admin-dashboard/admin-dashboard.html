@@ -1,0 +1,71 @@
+<div class="admin-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- DASHBOARD CARDS -->
+    <div class="admin-cards">
+
+      <div class="admin-card" routerLink="add-doctor">
+        <h3>Add Doctor</h3>
+        <p>
+          Register new doctors in the hospital system with specialization,
+          availability schedule, and consultation details.
+        </p>
+      </div>
+
+      <div class="admin-card" routerLink="doctors">
+        <h3>Manage Doctors</h3>
+        <p>
+          View, edit, and remove doctors. Update availability,
+          working hours, and specialization details.
+        </p>
+      </div>
+
+      <div class="admin-card" routerLink="appointments">
+        <h3>Manage Appointments</h3>
+        <p>
+          Monitor all patient appointments across departments.
+          Track approval, rejection, and completed visits.
+        </p>
+      </div>
+
+      <div class="admin-card" routerLink="add-specialist">
+        <h3>Add Specialist</h3>
+        <p>
+          Register expert specialist doctors who can be contacted
+          during emergency or complex surgeries.
+        </p>
+      </div>
+
+      <div class="admin-card" routerLink="specialistsComponent">
+        <h3>Manage Specialists</h3>
+        <p>
+          View, edit, delete specialist doctors and send
+          emergency call emails when required.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN INSTRUCTIONS -->
+    <div class="admin-info">
+
+      <h3>Administrator Responsibilities</h3>
+
+      <ul>
+        <li>✔ Register and manage doctors</li>
+        <li>✔ Monitor patient appointments</li>
+        <li>✔ Ensure doctors maintain their schedules</li>
+        <li>✔ Maintain hospital service availability</li>
+        <li>✔ Review appointment records</li>
+      </ul>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>
