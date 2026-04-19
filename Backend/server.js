@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
   "http://localhost:4200",
-  "mean-hospital-system.netlify.app",
+  "https://mean-hospital-system.netlify.app"
 ],
   credentials: true
 }));
