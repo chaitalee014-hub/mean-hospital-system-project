@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from '../../firebase';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-login',
@@ -49,7 +50,7 @@ export class Login implements OnInit {
       password: this.password
     };
 
-    this.http.post<any>('http://localhost:5000/api/auth/login', payload)
+    this.http.post<any>(`${environment.apiUrl}/auth/login`, payload)
       .subscribe({
         next: (res) => {
 
@@ -87,7 +88,7 @@ export class Login implements OnInit {
       const user = result.user;
 
       // 🔥 Send to backend
-      this.http.post<any>('http://localhost:5000/api/auth/google', {
+      this.http.post<any>(`${environment.apiUrl}/auth/google`, {
         name: user.displayName,
         email: user.email
       }).subscribe({

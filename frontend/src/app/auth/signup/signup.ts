@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-signup',
@@ -46,7 +47,7 @@ export class Signup {
       password: this.password
     };
 
-    this.http.post<any>('http://localhost:5000/api/auth/signup', payload)
+    this.http.post<any>(`${environment.apiUrl}/auth/signup`, payload)
       .subscribe({
         next: () => {
           alert("Signup successful!");

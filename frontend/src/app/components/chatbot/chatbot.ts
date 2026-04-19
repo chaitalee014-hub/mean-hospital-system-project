@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnInit, OnDestroy 
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-chatbot',
@@ -81,7 +82,7 @@ export class Chatbot implements OnInit, OnDestroy {
 
     this.scrollToBottom();
 
-    this.http.post<any>('http://localhost:5000/api/chatbot', {
+    this.http.post<any>(`${environment.apiUrl}/chatbot`, {
       message: message
     }).subscribe({
       next: (res) => {
