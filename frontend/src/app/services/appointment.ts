@@ -6,7 +6,7 @@ import { environment } from '../../environment';
 export class AppointmentService {
   private API = `${environment.apiUrl}/appointments`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private getAuthHeaders() {
     const token = localStorage.getItem('token');
@@ -18,12 +18,12 @@ export class AppointmentService {
   }
 
   // Doctor
-getDoctorAppointments() {
-  return this.http.get<any[]>(
-    `${this.API}/doctor?ts=${Date.now()}`,
-    this.getAuthHeaders()
-  );
-}
+  getDoctorAppointments() {
+    return this.http.get<any[]>(
+      `${this.API}/doctor?ts=${Date.now()}`,
+      this.getAuthHeaders()
+    );
+  }
 
 
   updateStatus(id: string, status: string) {
@@ -48,31 +48,31 @@ getDoctorAppointments() {
       this.getAuthHeaders()
     );
   }
-
+  
   getDoctorById(id: string) {
-  return this.http.get(`http://localhost:5000/api/doctors/${id}`);
-}
+    return this.http.get(`${environment.apiUrl}/doctors/${id}`);
+  }
 
-getBookedSlots(doctorId: string, date: string) {
-  return this.http.get(
-    `${this.API}/booked-slots?doctorId=${doctorId}&date=${date}`,
-    this.getAuthHeaders()
-  );
-}
+  getBookedSlots(doctorId: string, date: string) {
+    return this.http.get(
+      `${this.API}/booked-slots?doctorId=${doctorId}&date=${date}`,
+      this.getAuthHeaders()
+    );
+  }
 
-getUnseenCount() {
-  return this.http.get<any>(
-    `${this.API}/unseen-count`,
-    this.getAuthHeaders()
-  );
-}
+  getUnseenCount() {
+    return this.http.get<any>(
+      `${this.API}/unseen-count`,
+      this.getAuthHeaders()
+    );
+  }
 
-markAllSeen() {
-  return this.http.put(
-    `${this.API}/mark-seen`,
-    {},
-    this.getAuthHeaders()
-  );
-}
+  markAllSeen() {
+    return this.http.put(
+      `${this.API}/mark-seen`,
+      {},
+      this.getAuthHeaders()
+    );
+  }
 
 }
