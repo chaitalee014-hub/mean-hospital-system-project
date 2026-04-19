@@ -30,7 +30,9 @@ connectDB();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:4200", // change after deploy
+  origin:["https://mean-hospital-system-project.vercel.app/", 
+     "http://localhost:4200"
+    ],// change after deploy
   credentials: true
 }));
 
